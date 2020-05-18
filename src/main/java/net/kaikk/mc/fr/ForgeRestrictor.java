@@ -4,6 +4,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ForgeRestrictor extends JavaPlugin {
+
 	private static ForgeRestrictor instance;
 	Config config;
 	EventListener eventListener;

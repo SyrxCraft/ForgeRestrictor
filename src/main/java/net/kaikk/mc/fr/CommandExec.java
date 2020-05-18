@@ -30,7 +30,7 @@ public class CommandExec implements CommandExecutor {
 			}
 			
 			if (args.length==0) {
-				sender.sendMessage("Usage:\n/"+label+" (add|remove|list|enable|disable|reload)");
+				sender.sendMessage("Usage:\n /"+label+" (add|remove|list|enable|disable|reload)");
 				return false;
 			}
 			
@@ -52,7 +52,7 @@ public class CommandExec implements CommandExecutor {
 			String usage;
 			switch(args[0].toLowerCase()) {
 			case "add":
-				usage="Usage:\n/"+label+" add (whitelist) ('hand'|itemid|itemname)[:(metadata)] [world]\n"
+				usage="Usage:\n /"+label+" add (whitelist) ('hand'|itemid|itemname)[:(metadata)] [world]\n"
 						+ "/"+label+" add (ranged|aoe) ('hand'|itemid|itemname)[:(metadata)] [range] [world]";
 				if (args.length<3) {
 					sender.sendMessage(usage);
@@ -142,7 +142,7 @@ public class CommandExec implements CommandExecutor {
 						if (this.instance.config.whitelist.size()==0) {
 							throw new IllegalArgumentException("Whitelist is empty");
 						}
-						sender.sendMessage("§2ForgeRestrictor Whitelist\n(ItemName:Data [World])");
+						sender.sendMessage("\u00a72ForgeRestrictor Whitelist\n(ItemName:Data [World])");
 						for (ListedItem listedItem : this.instance.config.whitelist) {
 							sender.sendMessage(listedItem.toString());
 						}
@@ -151,7 +151,7 @@ public class CommandExec implements CommandExecutor {
 						if (this.instance.config.ranged.size()==0) {
 							throw new IllegalArgumentException("Ranged item list is empty");
 						}
-						sender.sendMessage("§2ForgeRestrictor Ranged item list\n(ItemName:Data (Range) [World])");
+						sender.sendMessage("\u00a72ForgeRestrictor Ranged item list\n(ItemName:Data (Range) [World])");
 						for (ListedItem listedItem : this.instance.config.ranged) {
 							sender.sendMessage(listedItem.toString());
 						}
@@ -160,7 +160,7 @@ public class CommandExec implements CommandExecutor {
 						if (this.instance.config.aoe.size()==0) {
 							throw new IllegalArgumentException("AoE item list is empty");
 						}
-						sender.sendMessage("§2ForgeRestrictor AoE item list\n(ItemName:Data (Range) [World])");
+						sender.sendMessage("\u00a72ForgeRestrictor AoE item list\n(ItemName:Data (Range) [World])");
 						for (ListedItem listedItem : this.instance.config.aoe) {
 							sender.sendMessage(listedItem.toString());
 						}
@@ -189,10 +189,6 @@ public class CommandExec implements CommandExecutor {
 					}
 				} else {
 					ProtectionPlugins pp = ProtectionPlugins.valueOf(args[1]);
-					if (pp==null) {
-						sender.sendMessage(usage);
-						return false;
-					}
 					sender.sendMessage(pp.toString()+" integration is temporary now enabled");
 					if (player!=null) {
 						this.instance.getLogger().info(player.getName()+" temporary enabled integration for "+pp.toString());
@@ -217,10 +213,6 @@ public class CommandExec implements CommandExecutor {
 					}
 				} else {
 					ProtectionPlugins pp = ProtectionPlugins.valueOf(args[1]);
-					if (pp==null) {
-						sender.sendMessage(usage);
-						return false;
-					}
 					sender.sendMessage(pp.toString()+" integration is now temporary disabled");
 					if (player!=null) {
 						this.instance.getLogger().info(player.getName()+" temporary disabled integration for "+pp.toString());
@@ -245,7 +237,7 @@ public class CommandExec implements CommandExecutor {
 	
 	@SuppressWarnings("deprecation")
 	ListedItem parseListedItemFromArgs(Player player, String[] args) throws IllegalArgumentException {
-		Material material=null;
+		Material material;
 		Byte data=null;
 		String world=null;
 		int range=100;
@@ -268,7 +260,7 @@ public class CommandExec implements CommandExecutor {
 			}
 		} else {
 			try {
-				int id=Integer.valueOf(arg2[0]);
+				int id=Integer.parseInt(arg2[0]);
 				material=Material.getMaterial(id);
 			} catch (NumberFormatException e) {
 				material=Material.matchMaterial(arg2[0]);
@@ -301,7 +293,7 @@ public class CommandExec implements CommandExecutor {
 		case "aoe":
 			if (args.length>3) {
 				try {
-					range=Integer.valueOf(args[3]);
+					range=Integer.parseInt(args[3]);
 					if (range>140) {
 						throw new NumberFormatException();
 					}

@@ -21,7 +21,7 @@ class ListedItem {
 			throw new IllegalArgumentException();
 		}
 		
-		this.material = (Material) Material.valueOf(arr[0]);
+		this.material = Material.valueOf(arr[0]);
 		if (arr.length>1) {
 			this.data = (arr[1].equals("null")?null:Byte.valueOf(arr[1]));
 			if (arr.length>2) {
@@ -35,13 +35,11 @@ class ListedItem {
 	}
 	
 	boolean match(Material material, Byte data, String world) {
-		boolean test = material==this.material && (this.data==null || this.data.equals(data)) && (this.world==null || this.world.equals(world));
-		return test;
+		return material== this.material && (this.data==null || this.data.equals(data)) && (this.world==null || this.world.equals(world));
 	}
 	
 	boolean equals(Material material, Byte data, String world) {
-		boolean test = material==this.material && (this.data==data || (this.data!=null && this.data.equals(data))) && (this.world==world || (this.world!=null && this.world.equals(world)));
-		return test;
+		return material== this.material && (this.data==data || (this.data!=null && this.data.equals(data))) && (this.world==world || (this.world!=null && this.world.equals(world)));
 	}
 
 	@Override

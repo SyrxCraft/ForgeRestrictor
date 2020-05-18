@@ -1,5 +1,6 @@
 package net.kaikk.mc.fr;
 
+import net.kaikk.mc.fr.protectionplugins.GriefPreventionHandler;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -13,7 +14,7 @@ import org.bukkit.entity.Player;
  * and make a pull request to add it to net.kaikk.mc.fr.protectionplugins
  * package. A proper name for a class that implements this interface is
  * [ProtectionPluginName]Handler, e.g., GriefPreventionPlusHandler 
- * @see net.kaikk.mc.fr.protectionplugins.GriefPreventionPlusHandler
+ * @see GriefPreventionHandler
  * @see net.kaikk.mc.fr.protectionplugins.WorldGuardHandler
  * */
 public interface ProtectionHandler {

@@ -17,10 +17,10 @@ class ListedRangedItem extends ListedItem {
 		for (Entry<String, Object> entry : map.entrySet()) {
 			switch(entry.getKey()) {
 			case "material":
-				this.material=(Material) Material.valueOf((String) entry.getValue());
+				this.material= Material.valueOf((String) entry.getValue());
 				break;
 			case "data":
-				this.data=Byte.valueOf((byte) entry.getValue());
+				this.data= (byte) entry.getValue();
 				break;
 			case "world":
 				this.world=(String) entry.getValue();
@@ -38,8 +38,8 @@ class ListedRangedItem extends ListedItem {
 			throw new IllegalArgumentException();
 		}
 		
-		this.material = (Material) Material.valueOf(arr[0]);
-		this.range = Integer.valueOf(arr[1]);
+		this.material = Material.valueOf(arr[0]);
+		this.range = Integer.parseInt(arr[1]);
 		
 		if (arr.length>2) {
 			this.data = (arr[2].equals("*")?null:Byte.valueOf(arr[2]));

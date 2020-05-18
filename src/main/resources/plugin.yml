@@ -1,8 +1,9 @@
-name: ${project.artifactId}
-main: ${package}.${project.artifactId}
-version: ${project.version}
-author: ${developer}
+name: ForgeRestrictor
+main: net.kaikk.mc.fr.ForgeRestrictor
+version: 1.3.5
+author: KaiNoMood
 loadbefore: [GriefPreventionPlus, WorldGuard]
+
 
 commands:
    forgerestrictor:

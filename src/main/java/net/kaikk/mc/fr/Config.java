@@ -11,8 +11,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 class Config {
+
 	final static String configFilePath = "plugins" + File.separator + "ForgeRestrictor" + File.separator + "config.yml";
-	private File configFile;
+
+	private final File configFile;
 	FileConfiguration config;
 	
 	List<ListedItem> whitelist;
@@ -28,10 +30,12 @@ class Config {
 	}
 
 	void load() {
-		ProtectionPlugins.GriefPreventionPlus.setEnabled(this.config.getBoolean("Protection.GriefPreventionPlus", true));
+
+		ProtectionPlugins.GriefPrevention.setEnabled(this.config.getBoolean("Protection.GriefPrevention", true));
+		ProtectionPlugins.PlotSquared.setEnabled(this.config.getBoolean("Protection.PlotSquared", true));
 		ProtectionPlugins.WorldGuard.setEnabled(this.config.getBoolean("Protection.WorldGuard", true));
 		
-		this.whitelist=new ArrayList<ListedItem>();
+		this.whitelist= new ArrayList<>();
 		for (String serialized : this.config.getStringList("Whitelist")) {
 			try {
 				this.whitelist.add(new ListedItem(serialized));
@@ -40,7 +44,7 @@ class Config {
 			}
 		}
 		
-		this.ranged=new ArrayList<ListedRangedItem>();
+		this.ranged= new ArrayList<>();
 		for (String serialized : this.config.getStringList("Ranged")) {
 			try {
 				this.ranged.add(new ListedRangedItem(serialized));
@@ -65,7 +69,8 @@ class Config {
 	
 	void save() {
 		try {
-			this.config.set("Protection.GriefPreventionPlus", ProtectionPlugins.GriefPreventionPlus.isEnabled());
+			this.config.set("Protection.GriefPreventionPlus", ProtectionPlugins.GriefPrevention.isEnabled());
+			this.config.set("Protection.PlotSquared", ProtectionPlugins.PlotSquared.isEnabled());
 			this.config.set("Protection.WorldGuard", ProtectionPlugins.WorldGuard.isEnabled());
 			
 			this.config.set("Whitelist", serializeListedItemList(this.whitelist));

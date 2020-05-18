@@ -5,15 +5,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 class ConfiscatedInventory {
-	private Player player;
-	private ItemStack[] is;
+	private final Player player;
+	private final ItemStack[] is;
 	private boolean isReleased;
 	
 	ConfiscatedInventory(Player player) {
 		this.player = player;
 		this.is = player.getInventory().getContents().clone();
 		player.getInventory().clear();
-		player.setItemInHand(new ItemStack(Material.AIR));
+		player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+		player.getInventory().setItemInOffHand(new ItemStack(Material.AIR));
 	}
 	
 	void release() {
@@ -41,10 +42,10 @@ class ConfiscatedInventory {
 	}
 	
 	private String inventoryContent() {
-		StringBuilder sb=new StringBuilder();
+		StringBuilder sb = new StringBuilder();
 		for (ItemStack is : this.is) {
 			if (is!=null) {
-				sb.append(is.getType().toString()+"("+is.getAmount()+") ");
+				sb.append(is.getType().toString()).append("(").append(is.getAmount()).append(") ");
 			}
 		}
 		return sb.toString();

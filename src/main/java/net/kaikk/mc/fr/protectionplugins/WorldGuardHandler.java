@@ -57,11 +57,11 @@ public class WorldGuardHandler implements ProtectionHandler {
 	
 	@Override
 	public boolean canUseAoE(Player player, Location location, int range) {
-		ProtectedCuboidRegion pcr = new ProtectedCuboidRegion("ForgeRestrictorWGAoETest", new BlockVector(location.getBlockX()-range, 0, location.getBlockZ()-range), new BlockVector(location.getBlockX()+range, 255, location.getBlockZ()+range));
+		ProtectedCuboidRegion pcr = new ProtectedCuboidRegion("ForgeRestrictorWGAoETest", new BlockVector(location.getBlockX() - range, 0, location.getBlockZ() - range), new BlockVector(location.getBlockX() + range, 255, location.getBlockZ() + range));
 		ApplicableRegionSet ars = this.worldGuard.getRegionManager(location.getWorld()).getApplicableRegions(pcr);
 		for (ProtectedRegion pr : ars.getRegions()) {
 			if (!this.worldGuard.canBuild(player, new Location(location.getWorld(), pr.getMaximumPoint().getBlockX(), pr.getMaximumPoint().getBlockY(), pr.getMaximumPoint().getBlockZ()))) {
-				player.sendMessage("§4You don't have permission in this area.");
+				player.sendMessage("\u00a74You don't have permission in this area.");
 				return false;
 			}
 		}
@@ -72,7 +72,7 @@ public class WorldGuardHandler implements ProtectionHandler {
 	boolean check(Player player, Location location) {
 		boolean perm=this.worldGuard.canBuild(player, location);
 		if (!perm) {
-			player.sendMessage("§4You don't have permission in this area.");
+			player.sendMessage("\u00a74You don't have permission in this area.");
 		}
 		return perm;
 	}

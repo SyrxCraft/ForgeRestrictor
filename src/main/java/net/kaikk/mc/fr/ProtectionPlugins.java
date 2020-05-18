@@ -2,14 +2,17 @@ package net.kaikk.mc.fr;
 
 import java.util.Arrays;
 
-import net.kaikk.mc.fr.protectionplugins.GriefPreventionPlusHandler;
+import net.kaikk.mc.fr.protectionplugins.GriefPreventionHandler;
+import net.kaikk.mc.fr.protectionplugins.PlotSquaredHandler;
 import net.kaikk.mc.fr.protectionplugins.WorldGuardHandler;
 
 enum ProtectionPlugins {
-	GriefPreventionPlus(GriefPreventionPlusHandler.class),
+
+	GriefPrevention(GriefPreventionHandler.class),
+	PlotSquared(PlotSquaredHandler.class),
 	WorldGuard(WorldGuardHandler.class);
 	
-	private Class<? extends ProtectionHandler> clazz;
+	private final Class<? extends ProtectionHandler> clazz;
 	private ProtectionHandler handler;
 	private boolean enabled=true;
 
