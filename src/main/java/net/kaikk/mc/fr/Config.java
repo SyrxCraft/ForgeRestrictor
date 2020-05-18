@@ -69,7 +69,7 @@ class Config {
 	
 	void save() {
 		try {
-			this.config.set("Protection.GriefPreventionPlus", ProtectionPlugins.GriefPrevention.isEnabled());
+			this.config.set("Protection.GriefPrevention", ProtectionPlugins.GriefPrevention.isEnabled());
 			this.config.set("Protection.PlotSquared", ProtectionPlugins.PlotSquared.isEnabled());
 			this.config.set("Protection.WorldGuard", ProtectionPlugins.WorldGuard.isEnabled());
 			
