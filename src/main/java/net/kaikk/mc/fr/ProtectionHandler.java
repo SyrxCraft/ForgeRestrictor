@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
  * Protection plugin developers should implement this interface
  * and make a pull request to add it to net.kaikk.mc.fr.protectionplugins
  * package. A proper name for a class that implements this interface is
- * [ProtectionPluginName]Handler, e.g., GriefPreventionPlusHandler 
+ * [ProtectionPluginName]Handler, e.g., GriefPreventionHandler 
  * @see GriefPreventionHandler
  * @see net.kaikk.mc.fr.protectionplugins.WorldGuardHandler
  * */
