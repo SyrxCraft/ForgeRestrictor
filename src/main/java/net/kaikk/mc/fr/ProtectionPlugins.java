@@ -5,12 +5,14 @@ import java.util.Arrays;
 import net.kaikk.mc.fr.protectionplugins.GriefPreventionHandler;
 import net.kaikk.mc.fr.protectionplugins.PlotSquaredHandler;
 import net.kaikk.mc.fr.protectionplugins.WorldGuardHandler;
+import net.kaikk.mc.fr.protectionplugins.uSkyBlockHandler;
 
 enum ProtectionPlugins {
 
 	GriefPrevention(GriefPreventionHandler.class),
 	PlotSquared(PlotSquaredHandler.class),
-	WorldGuard(WorldGuardHandler.class);
+	WorldGuard(WorldGuardHandler.class),
+	uSkyBlock(uSkyBlockHandler.class);
 	
 	private final Class<? extends ProtectionHandler> clazz;
 	private ProtectionHandler handler;

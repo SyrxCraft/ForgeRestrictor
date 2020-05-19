@@ -78,8 +78,10 @@ dependencies {
 
     compileOnly 'com.sk89q.worldedit:worldedit-bukkit:6.1.5'
     compileOnly 'com.sk89q.worldedit:worldedit-core:6.0.0-SNAPSHOT'
+
     compileOnly 'com.sk89q.worldguard:worldguard-legacy:6.2'
     compileOnly 'com.github.TechFortress:GriefPrevention:16.12.0'
     compileOnly 'com.plotsquared:PlotSquared:5.1'
+    compileOnly fileTree(dir: 'flatLibs', include: '*.jar')
 
 }

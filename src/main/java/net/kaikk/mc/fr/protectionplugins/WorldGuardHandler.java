@@ -14,6 +14,7 @@ import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 
 public class WorldGuardHandler implements ProtectionHandler {
+
 	WorldGuardPlugin worldGuard;
 	
 	public WorldGuardHandler() {

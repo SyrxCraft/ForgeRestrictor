@@ -34,6 +34,7 @@ class Config {
 		ProtectionPlugins.GriefPrevention.setEnabled(this.config.getBoolean("Protection.GriefPrevention", true));
 		ProtectionPlugins.PlotSquared.setEnabled(this.config.getBoolean("Protection.PlotSquared", true));
 		ProtectionPlugins.WorldGuard.setEnabled(this.config.getBoolean("Protection.WorldGuard", true));
+		ProtectionPlugins.uSkyBlock.setEnabled(this.config.getBoolean("Protection.uSkyBlock", true));
 		
 		this.whitelist= new ArrayList<>();
 		for (String serialized : this.config.getStringList("Whitelist")) {
@@ -72,6 +73,7 @@ class Config {
 			this.config.set("Protection.GriefPrevention", ProtectionPlugins.GriefPrevention.isEnabled());
 			this.config.set("Protection.PlotSquared", ProtectionPlugins.PlotSquared.isEnabled());
 			this.config.set("Protection.WorldGuard", ProtectionPlugins.WorldGuard.isEnabled());
+			this.config.set("Protection.uSkyBlock", ProtectionPlugins.uSkyBlock.isEnabled());
 			
 			this.config.set("Whitelist", serializeListedItemList(this.whitelist));
 			this.config.set("Ranged", serializeListedItemList(this.ranged));
